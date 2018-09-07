@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshots empty 1`] = `<!---->`;
+
+exports[`snapshots inactive 1`] = `
+<div
+  class="image-slider"
+>
+  <!---->
+   
+  <div
+    class="image-slider__overlay"
+  />
+   
+  <div
+    class="image-slider__footer "
+  >
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`snapshots with images 1`] = `
+<div
+  class="image-slider"
+>
+  <div
+    class="image-slider__slide"
+    mode="in-out"
+    name="fade"
+    style="background-image: url(https://dummyimage.com/100&text=1);"
+  />
+   
+  <div
+    class="image-slider__overlay"
+  />
+   
+  <div
+    class="image-slider__footer "
+  >
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`snapshots with images and indicators 1`] = `
+<div
+  class="image-slider"
+>
+  <div
+    class="image-slider__slide"
+    mode="in-out"
+    name="fade"
+    style="background-image: url(https://dummyimage.com/100&text=1);"
+  />
+   
+  <div
+    class="image-slider__overlay"
+  />
+   
+  <div
+    class="image-slider__footer "
+  >
+    <div
+      class="image-slider__indicator image-slider__indicator_active image-slider__indicator_loading"
+    >
+      <div />
+    </div>
+    <div
+      class="image-slider__indicator image-slider__indicator_inactive"
+    >
+      <div />
+    </div>
+    <div
+      class="image-slider__indicator image-slider__indicator_inactive"
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;
