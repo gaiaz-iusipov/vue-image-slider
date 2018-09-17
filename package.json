@@ -1,7 +1,20 @@
 {
   "name": "@gaiaz/vue-image-slider",
   "version": "1.0.6",
-  "repository": "git@github.com:gaiaz-iusipov/vue-image-slider.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaiaz-iusipov/vue-image-slider.git"
+  },
+  "keywords": [
+    "vue",
+    "vue component",
+    "slider",
+    "image slider"
+  ],
+  "bugs": {
+    "url": "https://github.com/gaiaz-iusipov/vue-image-slider/issues"
+  },
+  "homepage": "https://github.com/gaiaz-iusipov/vue-image-slider#readme",
   "author": "Gaiaz Iusipov <g.iusipov@gmail.com>",
   "license": "MIT",
   "main": "dist/image-slider.common.js",
