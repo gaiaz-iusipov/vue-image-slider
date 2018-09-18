@@ -3,6 +3,7 @@
 [![npm](https://img.shields.io/npm/v/@gaiaz/vue-image-slider.svg)](https://www.npmjs.com/package/@gaiaz/vue-image-slider)
 [![npm](https://img.shields.io/npm/dt/@gaiaz/vue-image-slider.svg)](https://www.npmjs.com/package/@gaiaz/vue-image-slider)
 [![GitHub](https://img.shields.io/github/license/gaiaz-iusipov/vue-image-slider.svg)](https://github.com/gaiaz-iusipov/vue-image-slider#license)
+[![CircleCI](https://circleci.com/gh/gaiaz-iusipov/vue-image-slider.svg?style=svg)](https://circleci.com/gh/gaiaz-iusipov/vue-image-slider)
 
 Vue.js simple image slider component
 
