@@ -11,11 +11,15 @@
         v-if="active !== null"
       />
     </transition>
+    <div class="image-slider__content" v-if="hasDefaultSlot" v-once>
+      <slot />
+    </div>
     <div
       class="image-slider__overlay"
       v-on:click="show(next)"
       v-on:mouseover="stop"
       v-on:mouseleave="start"
+      v-once
     />
     <div class="image-slider__footer ">
       <div
@@ -97,6 +101,9 @@ export default {
       }
 
       return this.images.length - 1
+    },
+    hasDefaultSlot () {
+      return !!this.$slots['default']
     },
     hasIndicatorsSlot () {
       return !!this.$scopedSlots['indicator']
@@ -189,6 +196,7 @@ export default {
   position: relative;
 }
 .image-slider__slide,
+.image-slider__content,
 .image-slider__overlay {
   position: absolute;
   top: 0;
