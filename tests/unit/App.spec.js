@@ -7,13 +7,18 @@ const images = [
   'https://dummyimage.com/300&text=3'
 ]
 
+const contentSlot = {
+  default: 'content'
+}
+
 const indicatorSlot = {
   indicator: '<div />'
 }
 
-const factory = (images = [], scopedSlots = {}) => {
+const factory = (images = [], slots = {}, scopedSlots = {}) => {
   return shallowMount(App, {
     propsData: { value: images },
+    slots,
     scopedSlots
   })
 }
@@ -31,6 +36,12 @@ describe('snapshots', () => {
     expect(wrapper.element).toMatchSnapshot()
   })
 
+  it('with content', () => {
+    const wrapper = factory(images, contentSlot)
+
+    expect(wrapper.element).toMatchSnapshot()
+  })
+
   it('with images', () => {
     const wrapper = factory(images)
     wrapper.setData({ active: 0 })
@@ -39,7 +50,7 @@ describe('snapshots', () => {
   })
 
   it('with images and indicators', () => {
-    const wrapper = factory(images, indicatorSlot)
+    const wrapper = factory(images, {}, indicatorSlot)
     wrapper.setData({ active: 0 })
 
     expect(wrapper.element).toMatchSnapshot()
@@ -123,6 +134,18 @@ describe('computed properties', () => {
     expect(wrapper.vm.last).toEqual(images.length - 1)
   })
 
+  it('hasDefaultSlot equals false', () => {
+    const wrapper = factory(images)
+
+    expect(wrapper.vm.hasDefaultSlot).toBeFalsy()
+  })
+
+  it('hasIndicators equals true', () => {
+    const wrapper = factory(images, contentSlot)
+
+    expect(wrapper.vm.hasDefaultSlot).toBeTruthy()
+  })
+
   it('hasIndicators equals false', () => {
     const wrapper = factory(images)
 
@@ -130,13 +153,13 @@ describe('computed properties', () => {
   })
 
   it('hasIndicators equals true', () => {
-    const wrapper = factory(images, indicatorSlot)
+    const wrapper = factory(images, {}, indicatorSlot)
 
     expect(wrapper.vm.hasIndicatorsSlot).toBeTruthy()
   })
 
   it('indicators has same size of images', () => {
-    const wrapper = factory(images, indicatorSlot)
+    const wrapper = factory(images, {}, indicatorSlot)
 
     expect(wrapper.vm.indicators).toHaveLength(images.length)
   })
@@ -169,6 +192,24 @@ describe('rendering', () => {
     expect(wrapper.find('.image-slider__slide').isEmpty()).toBeTruthy()
   })
 
+  it('content element is not exists', () => {
+    const wrapper = factory(images)
+
+    expect(wrapper.find('.image-slider__content').exists()).toBeFalsy()
+  })
+
+  it('content element is exists', () => {
+    const wrapper = factory(images, contentSlot)
+
+    expect(wrapper.find('.image-slider__content').exists()).toBeTruthy()
+  })
+
+  it('content element equals slot', () => {
+    const wrapper = factory(images, contentSlot)
+
+    expect(wrapper.find('.image-slider__content').text()).toEqual(contentSlot.default)
+  })
+
   it('overlay element is exists', () => {
     const wrapper = factory(images)
 
@@ -188,7 +229,7 @@ describe('rendering', () => {
   })
 
   it('indicator elements are exist', () => {
-    const wrapper = factory(images, indicatorSlot)
+    const wrapper = factory(images, {}, indicatorSlot)
 
     expect(wrapper.findAll('.image-slider__indicator')).toHaveLength(images.length)
   })
