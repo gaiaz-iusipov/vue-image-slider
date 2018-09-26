@@ -25,6 +25,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name 'image-slider'",
     "lint": "vue-cli-service lint",
+    "test": "yarn run test:unit",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
