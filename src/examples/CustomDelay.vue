@@ -18,7 +18,7 @@ export default {
         'https://dummyimage.com/300&text=2',
         'https://dummyimage.com/300&text=3'
       ],
-      delay: 2000
+      delay: 1000
     }
   },
   components: {

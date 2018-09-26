@@ -1,16 +1,24 @@
 <template>
-  <div class="container">
+  <div>
+    <p>Sample text</p>
+    <sample-text />
+
+    <p>Custom delay</p>
     <custom-delay />
+
+    <p>Indicators</p>
     <indicators />
   </div>
 </template>
 
 <script>
+import SampleText from './SampleText'
 import CustomDelay from './CustomDelay'
 import Indicators from './Indicators'
 
 export default {
   components: {
+    SampleText,
     CustomDelay,
     Indicators
   }
@@ -18,10 +26,6 @@ export default {
 </script>
 
 <style>
-.container {
-  display: flex;
-  justify-content: space-around;
-}
 .image-slider {
   width: 300px;
   height: 300px;
