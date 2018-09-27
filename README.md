@@ -28,7 +28,9 @@ npm install @gaiaz/vue-image-slider --save
 ```html
 <template>
   <div>
-    <image-slider v-model="slides" />
+    <image-slider v-model="slides">
+      Sample Text
+    </image-slider>
   </div>
 </template>
 
